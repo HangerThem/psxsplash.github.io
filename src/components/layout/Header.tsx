@@ -1,21 +1,14 @@
 import { ChevronsRightLeft, Download } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui"
+import { containerVariants, itemVariantsBottom } from "@/utils/animations"
 
 const features = [
-  {
-    title: "Lua",
-    description: "Scripting",
-  },
-  {
-    title: "1-Click",
-    description: "Build & Run",
-  },
-  {
-    title: "Real HW",
-    description: "+ Emulator",
-  },
+  { title: "Lua", description: "Scripting" },
+  { title: "1-Click", description: "Build & Run" },
+  { title: "Real HW", description: "+ Emulator" },
 ]
 
 function Header() {
@@ -69,24 +62,42 @@ function Header() {
         aria-hidden
         className="pointer-events-none absolute opacity-15 -top-1/10 left-1/5 h-150 w-150 rounded-full bg-primary blur-[120px]"
       />
-      <div className="flex flex-col items-center py-24">
-        <span
+
+      <motion.div
+        className="flex flex-col items-center py-24"
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.span
+          variants={itemVariantsBottom}
           className="text-sm text-primary-light border border-primary-light/25 bg-primary-light/10 rounded-full px-4 py-2 select-none"
           onClick={() => setNumOfClicks((v) => v + 1)}
         >
           PlayStation 1 Development
-        </span>
-        <h1 className="text-5xl md:text-[5rem] tracking-tighter leading-none font-black text-center my-8">
+        </motion.span>
+
+        <motion.h1
+          variants={itemVariantsBottom}
+          className="text-5xl md:text-[5rem] tracking-tighter leading-none font-black text-center my-8"
+        >
           Build <span className="hero-accent">PS1 Games</span>
           <br />
           in Unity
-        </h1>
-        <p className="text-xl text-center max-w-lg text-text-dim px-4">
+        </motion.h1>
+
+        <motion.p
+          variants={itemVariantsBottom}
+          className="text-xl text-center max-w-lg text-text-dim px-4"
+        >
           Design scenes in Unity&apos;s editor. Write game logic in Lua. Export
           to real PlayStation 1 hardware or emulator with a single click.
-        </p>
+        </motion.p>
 
-        <div className="flex flex-col items-center md:flex-row gap-4 my-10">
+        <motion.div
+          variants={itemVariantsBottom}
+          className="flex flex-col items-center md:flex-row gap-4 my-10"
+        >
           <Button
             href="https://github.com/psxsplash/splashedit/releases"
             size="lg"
@@ -101,10 +112,18 @@ function Header() {
           >
             Quick Start Guide
           </Button>
-        </div>
-        <div className="flex items-center gap-6">
+        </motion.div>
+
+        <motion.div
+          variants={itemVariantsBottom}
+          className="flex items-center gap-6"
+        >
           {features.map((feature, index) => (
-            <div key={feature.title} className="flex items-center gap-6">
+            <motion.div
+              key={feature.title}
+              variants={itemVariantsBottom}
+              className="flex items-center gap-6"
+            >
               <div className="flex flex-col items-center">
                 <h2 className="text-lg font-bold">{feature.title}</h2>
                 <span className="text-sm text-text-dim">
@@ -114,11 +133,14 @@ function Header() {
               {index < features.length - 1 && (
                 <span className="w-px h-8 bg-border-light" />
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="w-full max-w-5xl px-4 my-12">
+        <motion.div
+          variants={itemVariantsBottom}
+          className="w-full max-w-5xl px-4 my-12"
+        >
           <div
             ref={previewRef}
             className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border-light bg-black/30"
@@ -167,11 +189,12 @@ function Header() {
               </div>
             </div>
           </div>
+
           <p className="mt-4 text-center text-md text-text-dim">
             Move the handle to reveal the magic of psxsplash
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </header>
   )
 }

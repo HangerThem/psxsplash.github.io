@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-comment: oklch(0.5354 0.0326 285.25);
+  --color-keyword: oklch(0.7081 0.1591 293.09);
+  --color-string: oklch(0.7729 0.1535 163.22);
+  --color-function: oklch(0.8369 0.1644 84.43);
+  --color-number: oklch(0.7243 0.1773 349.19);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--color-comment);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: var(--color-keyword);
+}
+
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+  color: var(--color-string);
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-title.class_.inherited__ {
+  color: var(--color-function);
+}
+
+.hljs-title.function_,
+.hljs-function .hljs-title {
+  color: var(--color-function);
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-template-variable,
+.hljs-variable,
+.hljs-tag .hljs-attr {
+  color: var(--color-number);
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-name,
+.hljs-params {
+  color: var(--color-text-dim);
+}
+
+.hljs-tag,
+.hljs-tag .hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: var(--color-primary-light);
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: var(--color-text-muted);
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-addition {
+  color: var(--color-accent-light);
+}
+
+.hljs-deletion {
+  color: oklch(0.65 0.18 20);
+}
+
+.hljs-strong {
+  font-weight: 600;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}

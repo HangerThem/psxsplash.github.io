@@ -5,8 +5,8 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Button } from "@/components/ui"
 
 const links = [
-  { name: "Features", href: "#features" },
   { name: "How It Works", href: "#how-it-works" },
+  { name: "Features", href: "#features" },
   { name: "Get Started", href: "#get-started" },
   { name: "Lua API", href: "#lua" },
   { name: "Community", href: "#community" },

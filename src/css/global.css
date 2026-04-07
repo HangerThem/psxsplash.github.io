@@ -1,6 +1,6 @@
+@import "./custom-hljs.css";
 @import "tailwindcss";
 
-/* Global styles */
 @theme {
   --color-primary: oklch(0.5413 0.2466 293.01);
   --color-primary-light: oklch(0.709 0.1592 293.54);
@@ -18,7 +18,6 @@
   --color-text: oklch(0.9221 0.0148 286.11);
   --color-text-dim: oklch(0.6644 0.0338 285.44);
   --color-text-muted: oklch(0.5354 0.0326 285.25);
-  --color-success: oklch(0.7729 0.1535 163.22);
 
   --text-md: 0.9rem;
 }
@@ -62,4 +61,48 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.card-border-highlight {
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--color-comment);
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: var(--color-keyword);
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-built_in {
+  color: var(--color-string);
+}
+
+.hljs-literal,
+.hljs-number,
+.hljs-tag .hljs-attr,
+.hljs-template-variable,
+.hljs-variable {
+  color: var(--color-number);
+}
+
+.hljs-function .hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__ {
+  color: var(--color-function);
 }
